@@ -1,13 +1,13 @@
-CODEBOOK
+#CODEBOOK
 
 The run_analysis.R script performs the data preparation following the 5 steps required as described in the course project’s definition.
 
 
-INTRODUCTION: Download and Read Data, checking if archieve and folder exists.
-Dataset downloaded and extracted under the folder called UCI HAR Dataset and is named filename.
+#INTRODUCTION: Download and Read Data, checking if archieve and folder exists.
+##Dataset downloaded and extracted under the folder called UCI HAR Dataset and is named filename.
 
 
-STEP 1: Assign each data to variables
+#STEP 1: Assign each data to variables
  
 a. features<-features.txt (561 rows, 2 columns)
    The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ.
@@ -34,7 +34,7 @@ i. y_train <- test/y_train.txt (7352 rows, 1 column)
    Contains train data of activities’code labels
 
 
-STEP 2: Merges the training and the test sets to create one data set
+#STEP 2: Merges the training and the test sets to create one data set
 
 a. X is created by merging x_train and x_test using rbind() function
 b. Y is created by merging y_train and y_test using rbind() function
@@ -42,17 +42,17 @@ c. subject is created by merging subject_train and subject_test using rbind() fu
 d. merged_data is created by merging subject, Y and X using cbind() function
 
 
-STEP 3: Extracts only the measurements on the mean and standard deviation for each measurement
+#STEP 3: Extracts only the measurements on the mean and standard deviation for each measurement
 
 tidyData (10299 rows, 88 columns) is created by subsetting merged_data, selecting the columns: subject, code and the measurements on the mean and standard deviation (std) for each measurement.
 
 
-STEP 4: Uses descriptive activity names to name the activities in the data set
+#STEP 4: Uses descriptive activity names to name the activities in the data set
 
 Entire numbers in code column of the tidyData replaced with corresponding activity taken from second column of the activities variable
 
 
-STEP 5: Appropriately labels the data set with descriptive variable names
+#STEP 5: Appropriately labels the data set with descriptive variable names
 
 a. code column in tidyData renamed into "activityName"
 b. All Acc in column’s name replaced by "Accelerometer"
@@ -63,7 +63,7 @@ f. All start with character f in column’s name replaced by "Frequency"
 g. All start with character t in column’s name replaced by "Time"
 
 
-STEP 6: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
+#STEP 6: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
 FinalTidyData (180 rows, 88 columns) is created by sumarizing tidyData taking the means of each variable for each activity and each subject, after groupped by subject and activity.
 Export FinalTidyData into TidyData.txt file.
 
